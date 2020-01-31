@@ -1,15 +1,15 @@
-'use strict'
-
-const express = require('express')
+import express from 'express'
+import { configOptions } from './_config/config'
+import configureExpress from './_config/express'
+import configureMongoose from './_config/mongoose'
 
 const env = (process.env.NODE_ENV = process.env.NODE_ENV || 'development')
+const config = configOptions[env]
 
 const app = express()
 
-const config = require('./_config/config')[env]
+configureExpress(app, config)
 
-require('./_config/express')(app, config)
+configureMongoose(config, env)
 
-require('./_config/mongoose')(config, env)
-
-module.exports = app
+export default app

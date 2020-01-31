@@ -4,16 +4,22 @@
   "description": "Basic todo list web application to demonstrate testing",
   "main": "server.js",
   "scripts": {
-    "test": "mocha ./server/_config/test ./server/**/*.test.js",
-    "test-integration": "mocha ./server/_config/test ./server/_config/test/database-setup.js ./server/**/*.i-test.js",
-    "test-acceptance": "mocha ./server/_config/test ./server/**/*.a-test.js",
+    "test": "mocha ./server/_config/test ./server/**/*.test.js --require @babel/register",
+    "test-integration": "mocha ./server/_config/test ./server/_config/test/database-setup.js ./server/**/*.i-test.js --require @babel/register",
+    "test-acceptance": "mocha ./server/_config/test ./server/**/*.a-test.js --require @babel/register",
     "start": "concurrently 'npm run server' 'npm run client'",
-    "server": "node server/start-server.js",
-    "client": "node client/start-client.js"
+    "server": "babel-node server/start-server.js ",
+    "client": "babel-node client/start-client.js"
   },
   "author": "Patrik Drean",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/register": "^7.8.3",
     "axios": "^0.17.1",
     "chai": "^4.1.2",
     "concurrently": "^3.5.0",
@@ -23,6 +29,7 @@
     "uuid": "^3.1.0"
   },
   "dependencies": {
+    "@babel/runtime": "^7.8.4",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",

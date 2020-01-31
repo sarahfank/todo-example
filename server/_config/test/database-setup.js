@@ -1,6 +1,7 @@
-'use strict'
+import { configOptions } from '../config'
+import setUpMongoose from '../mongoose'
 
 const env = 'test'
-const config = require('../config')[env]
+const config = configOptions[env]
 
-require('../mongoose')(config, env)
+setUpMongoose(config, env)

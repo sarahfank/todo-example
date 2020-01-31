@@ -1,11 +1,8 @@
-'use strict'
-
-const uuid = require('uuid')
-const listTestData = require('../_config/test/test-data/list-test-data')
-const itemTestData = require('../_config/test/test-data/item-test-data')
-
-const toDoListFacade = require('./todo-list')
-const toDoListRepository = require('../repository/todo-list')
+import uuid from 'uuid'
+import listTestData from '../_config/test/test-data/list-test-data'
+import itemTestData from '../_config/test/test-data/item-test-data'
+import toDoListFacade from './todo-list'
+import toDoListRepository from '../repository/todo-list'
 
 describe('to do list business logic', () => {
   context('when validating an item name length', () => {

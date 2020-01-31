@@ -1,10 +1,8 @@
-'use strict'
+import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
+import routes from '../api'
 
-const bodyParser = require('body-parser')
-const cookieParser = require('cookie-parser')
-const routes = require('../api')
-
-module.exports = function(app, config) {
+export default function(app, config) {
   app.set('port', config.port)
 
   app.use(bodyParser.json())

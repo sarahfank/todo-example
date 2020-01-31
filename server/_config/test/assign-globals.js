@@ -1,9 +1,7 @@
-'use strict'
+import chai from 'chai'
+import td from 'testdouble'
 
-const chai = require('chai')
-const td = require('testdouble')
-
-td.config({ignoreWarnings: true})
+td.config({ ignoreWarnings: true })
 
 Object.assign(global, {
   assert: chai.assert,

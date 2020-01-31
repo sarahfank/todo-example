@@ -1,8 +1,11 @@
-'use strict'
+import express from 'express'
+import useMiddleware from './middleware/user-middleware'
+import todoList from './todo-list'
 
-const express = require('express')
 const router = express.Router()
 
-router.use(require('./todo-list'))
+router.use(useMiddleware)
 
-module.exports = router
+router.use(todoList)
+
+export default router

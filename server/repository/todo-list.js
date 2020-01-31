@@ -1,9 +1,7 @@
-'use strict'
+import mongoose from 'mongoose'
+import { ToDoList, Item } from './schema'
 
-const mongoose = require('mongoose')
-const { ToDoList, Item } = require('./schema')
-
-module.exports = {
+export default {
   getList(userId, listId) {
     let query = { userId: userId }
     if (listId) query._id = listId

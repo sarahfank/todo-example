@@ -1,10 +1,9 @@
-'use strict'
+import express from 'express'
+import toDoListFacade from '../business-logic/todo-list.js'
+import { configOptions } from '../_config/config'
 
 const env = (process.env.NODE_ENV = process.env.NODE_ENV || 'development')
-const config = require('../_config/config')[env]
-
-const express = require('express')
-const toDoListFacade = require('../business-logic/todo-list.js')
+const config = configOptions[env]
 
 const router = express.Router()
 

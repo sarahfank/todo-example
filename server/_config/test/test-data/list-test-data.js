@@ -1,17 +1,13 @@
-'use strict'
+import uuid from 'uuid'
+import itemData from './item-test-data'
 
-const uuid = require('uuid')
-const itemData = require('./item-test-data')
-
-module.exports = {
+export default {
   build(id) {
     id = id || uuid.v4()
 
     const userId = uuid.v4()
-    const name = 'Test list ' + id 
-    const items = [
-      itemData.build(id)  
-    ]
+    const name = 'Test list ' + id
+    const items = [itemData.build(id)]
     return {
       _id: uuid.v4(),
       userId,
@@ -24,8 +20,8 @@ module.exports = {
     id = id || uuid.v4()
 
     const userId = uuid.v4()
-    const name = listName || 'Test list ' + id 
-    
+    const name = listName || 'Test list ' + id
+
     return {
       _id: uuid.v4(),
       userId,

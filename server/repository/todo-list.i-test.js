@@ -1,10 +1,7 @@
-'use strict'
-
-const uuid = require('uuid')
-const mongoose = require('mongoose')
-
-const toDoListRepository = require('./todo-list')
-const { Item } = require('./schema')
+import uuid from 'uuid'
+import mongoose from 'mongoose'
+import toDoListRepository from './todo-list'
+import { Item } from './schema'
 
 describe('toDoListRepository', () => {
   let userId

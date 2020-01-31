@@ -1,8 +1,6 @@
-'use strict'
-
-const uuid = require('uuid')
-const supertest = require('supertest')
-const app = require('../server')
+import uuid from 'uuid'
+import supertest from 'supertest'
+import app from '../start-server'
 
 describe('/api', () => {
   let userId, request

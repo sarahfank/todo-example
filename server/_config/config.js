@@ -1,6 +1,4 @@
-'use strict'
-
-module.exports = {
+export const configOptions = {
   development: {
     db: 'mongodb://localhost/todo',
     port: process.env.PORT || 3001,

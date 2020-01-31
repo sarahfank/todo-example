@@ -1,8 +1,6 @@
-'use strict'
+import toDoListRepository from '../repository/todo-list'
 
-const toDoListRepository = require('../repository/todo-list')
-
-module.exports = {
+export default {
   isItemNameValid(itemName) {
     const minLength = 3
 

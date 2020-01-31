@@ -1,15 +1,13 @@
-'use strict'
+import uuid from 'uuid'
 
-const uuid = require('uuid')
-
-module.exports = {
+export default {
   build(id) {
     id = id || uuid.v4()
     return {
-        _id: id,
-        name: 'A to do test item ' + id,
-        complete: false,
-        completedAt: new Date().toLocaleString()
+      _id: id,
+      name: 'A to do test item ' + id,
+      complete: false,
+      completedAt: new Date().toLocaleString()
     }
   }
 }
