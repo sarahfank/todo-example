@@ -11,7 +11,7 @@ describe('/api', () => {
   })
 
   describe('/list', () => {
-    context('When the user does NOT have a list', () => {
+    describe('When the user does NOT have a list', () => {
       it('should return a null list', () => {
         return request.get('/api/list').then(res => {
           expect(res.body).to.be.null
@@ -20,7 +20,7 @@ describe('/api', () => {
     })
   })
 
-  context('When creating a list', () => {
+  describe('When creating a list', () => {
     let listId, createdList
 
     beforeEach(() => {
@@ -40,7 +40,7 @@ describe('/api', () => {
       expect(createdList.name).to.equal('Default')
     })
 
-    context('When adding items to the list', () => {
+    describe('When adding items to the list', () => {
       let listWithItems
       const item1Name = 'Buy some food'
       const item2Name = 'Make dinner'
@@ -72,7 +72,7 @@ describe('/api', () => {
         expect(listWithItems.items[1].name).to.equal(item2Name)
       })
 
-      context('When removing from a list', () => {
+      describe('When removing from a list', () => {
         let listAfterDeleting
 
         beforeEach(() => {
@@ -90,7 +90,7 @@ describe('/api', () => {
     })
   })
 
-  context('When creating two lists', () => {
+  describe('When creating two lists', () => {
     let list1, list2
     const list1Name = 'Work'
     const list2Name = 'Personal'
@@ -119,7 +119,7 @@ describe('/api', () => {
       expect(list2.name).to.equal(list2Name)
     })
 
-    context('When adding items to both lists', () => {
+    describe('When adding items to both lists', () => {
       let workListWithItems, personalListWithItems
       const workItem1 = 'Go to meeting'
       const workItem2 = 'Go to another meeting'
@@ -161,7 +161,7 @@ describe('/api', () => {
       })
     })
 
-    context('When getting the users lists', () => {
+    describe('When getting the users lists', () => {
       let userLists
 
       beforeEach(() => {

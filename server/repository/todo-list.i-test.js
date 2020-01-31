@@ -10,7 +10,7 @@ describe('toDoListRepository', () => {
     userId = uuid.v4()
   })
 
-  context('when getting a list', () => {
+  describe('when getting a list', () => {
     let createdList, returnedList
 
     beforeEach(() => {
@@ -31,7 +31,7 @@ describe('toDoListRepository', () => {
     })
   })
 
-  context('when the user has multiple lists', () => {
+  describe('when the user has multiple lists', () => {
     let createdList1, createdList2
     const list1Name = 'List 1'
     const list2Name = 'List 2'
@@ -50,7 +50,7 @@ describe('toDoListRepository', () => {
         .then(() => toDoListRepository.deleteList(userId, createdList2._id))
     })
 
-    context('when retrieving the individual lists', () => {
+    describe('when retrieving the individual lists', () => {
       let returnedList1, returnedList2
 
       beforeEach(() => {
@@ -72,7 +72,7 @@ describe('toDoListRepository', () => {
       })
     })
 
-    context('when getting users lists summary', () => {
+    describe('when getting users lists summary', () => {
       let userLists
 
       beforeEach(() => {
@@ -101,8 +101,8 @@ describe('toDoListRepository', () => {
     })
   })
 
-  context('when adding items to a todo list', () => {
-    context('when creating and adding one item to a list', () => {
+  describe('when adding items to a todo list', () => {
+    describe('when creating and adding one item to a list', () => {
       let savedList
       const listName = 'My Test List'
       const itemName = 'New Item'
@@ -132,7 +132,7 @@ describe('toDoListRepository', () => {
       })
     })
 
-    context('when adding multiple items to a list', () => {
+    describe('when adding multiple items to a list', () => {
       let savedList
       const listName = 'My Test List'
       const item1Name = 'New Item 1'
@@ -176,7 +176,7 @@ describe('toDoListRepository', () => {
       })
     })
 
-    // context('when the list does not exist', () => {
+    // describe('when the list does not exist', () => {
     //   let savedList
     //   const listId = mongoose.Types.ObjectId()
     //   const itemName = 'New Item 1'
@@ -199,7 +199,7 @@ describe('toDoListRepository', () => {
     //   })
     // })
 
-    context('when the user does not own the list', () => {
+    describe('when the user does not own the list', () => {
       let createdList, updatedList, error
       let otherUserId = uuid.v4()
 
@@ -230,8 +230,8 @@ describe('toDoListRepository', () => {
     })
   })
 
-  context('when checking an item as complete', () => {
-    context('when the item exists', () => {
+  describe('when checking an item as complete', () => {
+    describe('when the item exists', () => {
       let listId, savedList, item1Id, response, updatedItem
       const item1Name = 'Item 1'
       const item2Name = 'Item 2'
@@ -282,7 +282,7 @@ describe('toDoListRepository', () => {
       })
     })
 
-    context('when the item DOES NOT exist', () => {
+    describe('when the item DOES NOT exist', () => {
       let error
       const itemId = mongoose.Types.ObjectId()
 
@@ -305,8 +305,8 @@ describe('toDoListRepository', () => {
     })
   })
 
-  context('when UNchecking an item', () => {
-    context('when the item exists', () => {
+  describe('when UNchecking an item', () => {
+    describe('when the item exists', () => {
       let listId, savedList, item1Id, item2Id, response, updatedItem
       const item1Name = 'Item 1'
       const item2Name = 'Item 2'
@@ -362,7 +362,7 @@ describe('toDoListRepository', () => {
       })
     })
 
-    context('when the item DOES NOT exist', () => {
+    describe('when the item DOES NOT exist', () => {
       let error
       const itemId = mongoose.Types.ObjectId()
 
@@ -385,8 +385,8 @@ describe('toDoListRepository', () => {
     })
   })
 
-  context('when removing an item', () => {
-    context('when the item exists', () => {
+  describe('when removing an item', () => {
+    describe('when the item exists', () => {
       let listId, item1Id, item2Id, response, savedList
       const item1Name = 'Item 1'
       const item2Name = 'Item 2'
@@ -433,7 +433,7 @@ describe('toDoListRepository', () => {
       })
     })
 
-    context('when the item DOES NOT exist', () => {
+    describe('when the item DOES NOT exist', () => {
       let listId, error
       const itemId = mongoose.Types.ObjectId()
 
@@ -454,7 +454,7 @@ describe('toDoListRepository', () => {
       })
     })
 
-    context('when the list DOES NOT exist', () => {
+    describe('when the list DOES NOT exist', () => {
       let error
       const listId = mongoose.Types.ObjectId()
 
@@ -470,7 +470,7 @@ describe('toDoListRepository', () => {
     })
   })
 
-  context('when removing a list', () => {
+  describe('when removing a list', () => {
     let listId, list
 
     beforeEach(() => {

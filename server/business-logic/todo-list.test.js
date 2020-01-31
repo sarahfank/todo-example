@@ -1,20 +1,20 @@
 import uuid from 'uuid'
 import listTestData from '../_config/test/test-data/list-test-data'
 import itemTestData from '../_config/test/test-data/item-test-data'
-import toDoListFacade from './todo-list'
+import todoListLogic from './todo-list'
 import toDoListRepository from '../repository/todo-list'
 
-context('to do list business logic', () => {
+describe('to do list business logic', () => {
   describe('when validating an item name length', () => {
     it('should return true for item names over 2 characters', () => {
       const itemName = 'Go to the store'
 
-      expect(toDoListFacade.isItemNameValid(itemName)).to.be.true
+      expect(todoListLogic.isItemNameValid(itemName)).to.be.true
     })
     it('should return false for items under 3 characters', () => {
       const itemName = 'Np'
 
-      expect(toDoListFacade.isItemNameValid(itemName)).to.be.false
+      expect(todoListLogic.isItemNameValid(itemName)).to.be.false
     })
   })
 
@@ -25,7 +25,7 @@ context('to do list business logic', () => {
   })
 
   describe('#getList', () => {
-    context('when getting a users default list', () => {
+    describe('when getting a users default list', () => {
       let actual, toDoList
 
       beforeEach(() => {
@@ -39,7 +39,7 @@ context('to do list business logic', () => {
           )
         ).thenResolve(toDoList)
 
-        return toDoListFacade.getList(userId).then(l => (actual = l))
+        return todoListLogic.getList(userId).then(l => (actual = l))
       })
 
       it('should call the to do list repository', () => {
@@ -51,7 +51,7 @@ context('to do list business logic', () => {
       })
     })
 
-    context('when getting a users list by id', () => {
+    describe('when getting a users list by id', () => {
       let actual, toDoList
 
       beforeEach(() => {
@@ -65,7 +65,7 @@ context('to do list business logic', () => {
           )
         ).thenResolve(toDoList)
 
-        return toDoListFacade
+        return todoListLogic
           .getList(userId, toDoList._id)
           .then(l => (actual = l))
       })
@@ -79,7 +79,7 @@ context('to do list business logic', () => {
       })
     })
 
-    context('when getting a users list by id', () => {
+    describe('when getting a users list by id', () => {
       let actual, toDoList
 
       beforeEach(() => {
@@ -93,7 +93,7 @@ context('to do list business logic', () => {
           )
         ).thenResolve(toDoList)
 
-        return toDoListFacade
+        return todoListLogic
           .getList(userId, toDoList._id)
           .then(l => (actual = l))
       })
@@ -124,7 +124,7 @@ context('to do list business logic', () => {
         toDoListRepository.getListsForUser(td.matchers.anything())
       ).thenResolve(expected)
 
-      return toDoListFacade.getListsForUser(userId).then(l => (actual = l))
+      return todoListLogic.getListsForUser(userId).then(l => (actual = l))
     })
 
     it('should gets the users lists from the repository', () => {
@@ -152,7 +152,7 @@ context('to do list business logic', () => {
         toDoListRepository.getListsForUser(td.matchers.anything())
       ).thenResolve(expected)
 
-      return toDoListFacade.getListsForUser(userId).then(l => (actual = l))
+      return todoListLogic.getListsForUser(userId).then(l => (actual = l))
     })
 
     it('should gets the users lists from the repository', () => {
@@ -165,7 +165,7 @@ context('to do list business logic', () => {
   })
 
   describe('#createList', () => {
-    context('when creating a list without a name', () => {
+    describe('when creating a list without a name', () => {
       let actual, toDoList
 
       beforeEach(() => {
@@ -179,7 +179,7 @@ context('to do list business logic', () => {
           )
         ).thenResolve(toDoList)
 
-        return toDoListFacade.createList(userId).then(l => (actual = l))
+        return todoListLogic.createList(userId).then(l => (actual = l))
       })
 
       it('should call the repository with the userId and a default name', () => {
@@ -191,7 +191,7 @@ context('to do list business logic', () => {
       })
     })
 
-    context('when creating a list with a name', () => {
+    describe('when creating a list with a name', () => {
       let actual, toDoList
       const listName = 'This is a to do list'
 
@@ -206,7 +206,7 @@ context('to do list business logic', () => {
           )
         ).thenResolve(toDoList)
 
-        return toDoListFacade
+        return todoListLogic
           .createList(userId, listName)
           .then(l => (actual = l))
       })
@@ -237,7 +237,7 @@ context('to do list business logic', () => {
         )
       ).thenResolve(toDoItem)
 
-      return toDoListFacade
+      return todoListLogic
         .checkItem(itemId, completedAt)
         .then(l => (actual = l))
     })
@@ -263,7 +263,7 @@ context('to do list business logic', () => {
         toDoListRepository.uncheckItem(td.matchers.anything())
       ).thenResolve(toDoItem)
 
-      return toDoListFacade.uncheckItem(itemId).then(l => (actual = l))
+      return todoListLogic.uncheckItem(itemId).then(l => (actual = l))
     })
 
     it('should call the to do list repository', () => {
@@ -294,7 +294,7 @@ context('to do list business logic', () => {
         )
       ).thenResolve(toDoList)
 
-      return toDoListFacade.addItem(userId, itemDetails).then(l => (actual = l))
+      return todoListLogic.addItem(userId, itemDetails).then(l => (actual = l))
     })
 
     it('should call the to do list repository', () => {
@@ -324,7 +324,7 @@ context('to do list business logic', () => {
         )
       ).thenResolve(toDoList)
 
-      return toDoListFacade
+      return todoListLogic
         .removeItem(userId, listId, itemId)
         .then(l => (actual = l))
     })
@@ -352,7 +352,7 @@ context('to do list business logic', () => {
         )
       ).thenResolve()
 
-      return toDoListFacade.deleteList(userId, listId)
+      return todoListLogic.deleteList(userId, listId)
     })
 
     it('should call the to do list repository', () => {

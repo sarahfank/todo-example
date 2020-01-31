@@ -12,13 +12,13 @@ brew install mongodb-community
 brew services start mongodb-community
 ```
 
-Database is setup when the project is run for the first time
+Database will be setup when the project is run for the first time
 
 ## Setup
 
 ```bash
 npm install # For global project
-cd client && npm install # For client
+cd client && npm install && cd ..# For client
 ```
 
 ## Run tests

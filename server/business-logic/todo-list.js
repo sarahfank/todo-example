@@ -1,10 +1,22 @@
 import toDoListRepository from '../repository/todo-list'
 
-const toDoListFacade = {
+const todoListLogic = {
   isItemNameValid(itemName) {
     const minLength = 3
 
     return itemName.length >= minLength
+  },
+  addItem(userId, addItemDetails) {
+    const itemName = addItemDetails.newItemName
+    if (this.isItemNameValid(itemName)) {
+      return toDoListRepository.addItem(
+        userId,
+        addItemDetails.listId,
+        addItemDetails.newItemName
+      )
+    } else {
+      throw 'Break everything because the name is too long!!'
+    }
   },
   getList(userId, listId) {
     return toDoListRepository.getList(userId, listId)
@@ -26,14 +38,6 @@ const toDoListFacade = {
     return toDoListRepository.uncheckItem(itemId)
   },
 
-  addItem(userId, addItemDetails) {
-    return toDoListRepository.addItem(
-      userId,
-      addItemDetails.listId,
-      addItemDetails.newItemName
-    )
-  },
-
   removeItem(userId, listId, itemId) {
     return toDoListRepository.removeItem(userId, listId, itemId)
   },
@@ -43,4 +47,4 @@ const toDoListFacade = {
   }
 }
 
-export default toDoListFacade
+export default todoListLogic
