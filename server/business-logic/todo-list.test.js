@@ -4,8 +4,8 @@ import itemTestData from '../_config/test/test-data/item-test-data'
 import toDoListFacade from './todo-list'
 import toDoListRepository from '../repository/todo-list'
 
-describe('to do list business logic', () => {
-  context('when validating an item name length', () => {
+context('to do list business logic', () => {
+  describe('when validating an item name length', () => {
     it('should return true for item names over 2 characters', () => {
       const itemName = 'Go to the store'
 

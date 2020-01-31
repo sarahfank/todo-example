@@ -34,11 +34,11 @@ describe('/api', () => {
       return request.delete(`/api/deleteList/${listId}`).expect(200)
     })
 
-    // it('should create an empty list', () => {
-    //   expect(createdList.userId).to.equal(userId)
-    //   expect(createdList.items).to.be.empty
-    //   expect(createdList.name).to.equal('Default')
-    // })
+    it('should create an empty list', () => {
+      expect(createdList.userId).to.equal(userId)
+      expect(createdList.items).to.be.empty
+      expect(createdList.name).to.equal('Default')
+    })
 
     context('When adding items to the list', () => {
       let listWithItems
@@ -171,9 +171,9 @@ describe('/api', () => {
           .then(res => (userLists = res.body))
       })
 
-      // it('should return the lists for the user', () => {
-      //   expect(userLists.userId).to.eql(userId)
-      // })
+      it('should return the lists for the user', () => {
+        expect(userLists.userId).to.eql(userId)
+      })
 
       it('should include two lists', () => {
         expect(userLists.lists.length).to.equal(2)

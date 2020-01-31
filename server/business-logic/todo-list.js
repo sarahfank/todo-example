@@ -1,6 +1,6 @@
 import toDoListRepository from '../repository/todo-list'
 
-export default {
+const toDoListFacade = {
   isItemNameValid(itemName) {
     const minLength = 3
 
@@ -42,3 +42,5 @@ export default {
     return toDoListRepository.deleteList(userId, listId)
   }
 }
+
+export default toDoListFacade

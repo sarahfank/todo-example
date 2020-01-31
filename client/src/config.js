@@ -1,3 +1,3 @@
-module.exports = {
+export default {
   defaultUserId: 'patrik-drean'
 }

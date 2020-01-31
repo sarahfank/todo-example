@@ -62,4 +62,4 @@ router.delete('/deleteList/:listId', (req, res) => {
     .then(() => res.status(200).end())
 })
 
-module.exports = router
+export default router
