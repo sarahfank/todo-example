@@ -1,0 +1,32 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "Basic todo list web application to demonstrate testing",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha ./server/_config/test ./server/**/*.specs.js",
+    "test-integration": "mocha ./server/_config/test ./server/_config/test/database-setup.js ./server/**/*.i-specs.js",
+    "test-acceptance": "mocha ./server/_config/test ./server/**/*.a-specs.js",
+    "start": "concurrently 'npm run server' 'npm run client'",
+    "server": "node server.js",
+    "client": "node start-client.js"
+  },
+  "author": "Patrik Drean",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.17.1",
+    "chai": "^4.1.2",
+    "concurrently": "^3.5.0",
+    "mocha": "^3.5.3",
+    "supertest": "^3.0.0",
+    "testdouble": "^3.2.6",
+    "uuid": "^3.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.10",
+    "react-router-dom": "^4.2.2"
+  }
+}

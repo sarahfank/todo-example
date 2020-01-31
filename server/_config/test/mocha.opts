@@ -1,0 +1,6 @@
+
+--ui bdd
+--timeout 10000
+--reporter progress
+--require ./server/config/test/assign-globals
+./server/config/test/mocha-globals
