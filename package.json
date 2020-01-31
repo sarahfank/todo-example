@@ -4,12 +4,12 @@
   "description": "Basic todo list web application to demonstrate testing",
   "main": "server.js",
   "scripts": {
-    "test": "mocha ./server/_config/test ./server/**/*.specs.js",
-    "test-integration": "mocha ./server/_config/test ./server/_config/test/database-setup.js ./server/**/*.i-specs.js",
-    "test-acceptance": "mocha ./server/_config/test ./server/**/*.a-specs.js",
+    "test": "mocha ./server/_config/test ./server/**/*.test.js",
+    "test-integration": "mocha ./server/_config/test ./server/_config/test/database-setup.js ./server/**/*.i-test.js",
+    "test-acceptance": "mocha ./server/_config/test ./server/**/*.a-test.js",
     "start": "concurrently 'npm run server' 'npm run client'",
-    "server": "node server.js",
-    "client": "node start-client.js"
+    "server": "node server/start-server.js",
+    "client": "node client/start-client.js"
   },
   "author": "Patrik Drean",
   "license": "ISC",

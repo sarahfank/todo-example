@@ -1,3 +1,3 @@
 module.exports = {
-  defaultUserId: 'amy-dredge' // TODO
+  defaultUserId: 'patrik-drean'
 }
