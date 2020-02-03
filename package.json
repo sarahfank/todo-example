@@ -7,7 +7,7 @@
     "test": "mocha ./server/_config/test ./server/**/*.test.js --require @babel/register",
     "test-integration": "mocha ./server/_config/test ./server/_config/test/database-setup.js ./server/**/*.i-test.js --require @babel/register",
     "test-acceptance": "mocha ./server/_config/test ./server/**/*.a-test.js --require @babel/register",
-    "start": "concurrently 'npm run server' 'npm run client'",
+    "start": "npm run server",
     "server": "babel-node server/start-server.js ",
     "client": "babel-node client/start-client.js"
   },
