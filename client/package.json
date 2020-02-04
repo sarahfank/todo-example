@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
+  "proxy": "https://todo-patrik-test.herokuapp.com/",
   "homepage": "http://patrik-drean.github.io/todo-example",
   "dependencies": {
     "axios": "^0.16.2",
