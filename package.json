@@ -7,7 +7,7 @@
     "test": "mocha ./server/_config/test ./server/**/*.test.js --require @babel/register",
     "test-integration": "mocha ./server/_config/test ./server/_config/test/database-setup.js ./server/**/*.i-test.js --require @babel/register",
     "test-acceptance": "mocha ./server/_config/test ./server/**/*.a-test.js --require @babel/register",
-    "start": "npm run server",
+    "start": "concurrently 'npm run server' 'npm run client'",
     "server": "babel-node server/start-server.js ",
     "client": "babel-node client/start-client.js"
   },
@@ -32,6 +32,7 @@
     "@babel/runtime": "^7.8.4",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.15.3",
     "mongoose": "^4.11.10",
     "react-router-dom": "^4.2.2"

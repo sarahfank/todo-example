@@ -1,8 +1,10 @@
 import express from 'express'
+import dotenv from 'dotenv'
 import todoListLogic from '../business-logic/todo-list.js'
 import { configOptions } from '../_config/config'
 
-const env = (process.env.NODE_ENV = process.env.NODE_ENV || 'development')
+dotenv.config()
+const env = process.env.NODE_ENV || 'development'
 const config = configOptions[env]
 const router = express.Router()
 
