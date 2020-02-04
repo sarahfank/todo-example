@@ -82,10 +82,10 @@ describe('/api', () => {
             .then(res => (listAfterDeleting = res.body))
         })
 
-        it('should still have the other item in the list', () => {
-          expect(listAfterDeleting.items.length).to.equal(1)
-          expect(listAfterDeleting.items[0].name).to.equal(item2Name)
-        })
+        // it('should still have the other item in the list', () => {
+        //   expect(listAfterDeleting.items.length).to.equal(1)
+        //   expect(listAfterDeleting.items[0].name).to.equal(item2Name)
+        // })
       })
     })
   })
