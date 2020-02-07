@@ -96,7 +96,7 @@ class ToDoList extends Component {
     return (
       <div>
         <div className="list-header">{this.renderListName()}</div>
-        <Link to="/" className="link-home">
+        <Link to="/todo-example/" className="link-home">
           all lists
         </Link>
         <div>

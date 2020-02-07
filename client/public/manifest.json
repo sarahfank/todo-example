@@ -4,8 +4,8 @@
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "192x192",
-      "type": "image/png"
+      "sizes": "48X48",
+      "type": "image/ico"
     }
   ],
   "start_url": "./index.html",

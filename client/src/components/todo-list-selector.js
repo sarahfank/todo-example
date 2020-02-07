@@ -33,7 +33,7 @@ class ToDoListSelector extends Component {
     if (!this.state.lists || this.state.lists.length <= 0) return
     return this.state.lists.map(list => (
       <li key={list._id} className="list">
-        <Link to={`/list/${list._id}`}>{list.name}</Link>
+        <Link to={`/todo-example/list/${list._id}`}>{list.name}</Link>
       </li>
     ))
   }
