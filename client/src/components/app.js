@@ -18,21 +18,25 @@ class App extends Component {
       this.setState({
         hasAuthenticated: true
       })
+      console.log(this.state.hasAuthenticated)
     })
   }
 
   render() {
     let appBody
-    if (this.state.hasAuthenticated) {
-      appBody = (
+    // if (this.state.hasAuthenticated) {
+    appBody = (
+      <>
         <Switch>
           <Route exact path="/" component={ToDoListSelector} />
           <Route exact path="/lists" component={ToDoListSelector} />
           <Route exact path="/list" component={ToDoList} />
           <Route path="/list/:listId" component={ToDoList} />
         </Switch>
-      )
-    }
+        <p>User authenticated: ${this.state.hasAuthenticated} </p>
+      </>
+    )
+    // }
 
     return <div className="app">{appBody}</div>
   }
