@@ -36,3 +36,12 @@ npm run test-acceptance # acceptance tests
 ```bash
 npm start # starts both client and server
 ```
+
+## Technologies used to deploy
+
+```
+MongoDB Atlas
+TeamCity
+GitHub Pages
+Heroku
+```

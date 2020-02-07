@@ -8,8 +8,8 @@ const config = configOptions[env]
 export default function(req, res, next) {
   if (req.path.includes('/auth')) return next()
 
-  let userId
-  const userIdCookie = req.cookies[config.userCookieName]
+  // const userIdCookie = req.cookies[config.userCookieName]
+  const userIdCookie = req.cookies[config.userCookieName] || 'patrik-drean' // Hardcoded for simplicity's sake
 
   if (!userIdCookie) {
     return res.sendStatus(401)
